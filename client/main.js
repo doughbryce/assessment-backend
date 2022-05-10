@@ -48,9 +48,10 @@ const getFortune = () => {
 
 const addGoal = (body) => {
     body = bucketInput.value;
-    axios.post(`${baseURL}goal/`, body)
+    console.log(bucketInput);
+    axios.post(`${baseURL}goal/`, { bucket_input: bucketInput.value })
         .then((res => {
-            console.log(body)
+            // console.log(body)
             console.log(res.data);
             displayGoals(res.data);
         }))
@@ -60,8 +61,13 @@ const addGoal = (body) => {
 }
     
 const displayGoals = (input) => {
+
+    // for (let i = 0; i < array.length; i++) {
+    //     const element = array[i];
+        
+    // }
     let addLi = document.createElement(`li`)
-    addLi.textContent = input.value;
+    addLi.textContent = input;
     bucketList.appendChild(addLi);
 }
 
@@ -99,3 +105,4 @@ minusBtn.addEventListener(`click`, counter)
 plusBtn.addEventListener(`click`, counter)
 
 getAllGoals();
+console.log(bucketInput.value)

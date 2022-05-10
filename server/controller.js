@@ -29,13 +29,13 @@ module.exports = {
         res.status(200).send(goals)
     },
     addGoal: (req, res) => {
-        const body = req.body;
-        console.log(body)
+        // const body = req.body;
+        goals.push(req.body.bucket_input)
         // goals.push(body)
         res.status(200).send(goals)
     },
     deleteGoal: (req, res) => {
-        console.log(req.body);
+        console.log(req);
 
         goals = [];
 
